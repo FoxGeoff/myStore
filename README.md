@@ -343,3 +343,6 @@ figure {
     margin-right: 5px;
   }
   ```
+  ## Test screen shot
+  
+  ![Screen Shot](/resources/GUI.png)
