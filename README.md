@@ -32,14 +32,22 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. Run ```   ```
 1. Run ```   ```
 
-## Check: install bootstrap 4.x
+## Check: Add Bootstrap 4.x
 1. Run ```npm i bootstrap jquery popper.js```
 1. Add to angular.json ``` "styles": [
   "styles.css",
   "node_modules/bootstrap/dist/css/bootstrap.min.css"
 ],```
-1. Add to angular.jsom ```"scripts": [
+1. Add to angular.json ```"scripts": [
   "node_modules/jquery/dist/jquery.js",
   "node_modules/popper.js/dist/umd/popper.js",
   "node_modules/bootstrap/dist/js/bootstrap.js"
 ]```
+## Check: Add components, service and routes
+1. Run ```ng g c home --spec false```
+1. Run ```ng g c footer --spec false```
+1. Run ```ng g c navbar --spec false```
+1. Run ```ng g c product-item --spec false```
+1. Run ```ng g c product-detail --spec false```
+1. Run ```ng g c search --spec false```
+1. Run ```ng g s shared/product --spec false```
