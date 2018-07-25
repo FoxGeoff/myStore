@@ -270,7 +270,7 @@ const products = [
 ```
 This is the DI provider  save you from adding it in the NgModule secrion ```Providers:[ServiceProvider],```
 
-## Check: Add Product item component code, html and css
+## Check: Add Product-item component code, html and css
 ```
 import {Component, Input} from '@angular/core';
 import {Product} from '../shared/product';
@@ -306,3 +306,40 @@ figure {
     margin-right: 5px;
   }
 ```
+
+## Check: Add Home component code, html and css
+```
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../shared/product';
+import { ProductService } from '../shared/product.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+
+  products: Product[] = [];
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+  }
+}
+```
+```
+<div class="row">
+  <div *ngFor="let product of products" class="col-sm-4 col-lg-4 col-md-4">
+    <app-product-item [product]="product"></app-product-item>
+  </div>
+</div>
+```
+```
+figure {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  ```
