@@ -53,7 +53,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. Run ```ng g c search --spec false```
 1. Run ```ng g s shared/product --spec false```
 
-## Tip: ##
+## Tip:
 If you see an error like ```You seem to not be depenging on '@angular/core' and/or 'rxjs' ```, delete node_modules and run ```npm install`` to rebuild this folder.
 
 ## Check: Add app.component.html
@@ -260,3 +260,49 @@ const products = [
     "categories": ["books"]
   }
 ];
+```
+
+## Tip: new to Angular 6.x
+```
+@Injectable({
+  providedIn: 'root'
+})
+```
+This is the DI provider  save you from adding it in the NgModule secrion ```Providers:[ServiceProvider],```
+
+## Check: Add Product item component code, html and css
+```
+import {Component, Input} from '@angular/core';
+import {Product} from '../shared/product';
+
+@Component({
+  selector: 'app-product-item',
+  templateUrl: './product-item.component.html',
+  styleUrls: ['./product-item.component.css']
+})
+export class ProductItemComponent {
+
+  @Input() product: Product;
+}
+```
+We’ll use the HTML 5 tags <figure>, <figcaption> and Bootstrap styles in the file product-item.component.html. The routerLink directive will be used to nabigate to the product detail view. Change its content to the following:
+```
+<figure class="figure">
+  <img src="http://placehold.it/320x150" class="figure-img img-fluid rounded">
+  <figcaption class="figure-caption">
+    <h5><a [routerLink]="['/products', product.id]">{{product.title}}</a>
+        <span>{{product.price | currency}}</span>
+    </h5>
+    <p>{{product.shortDescription}}</p>
+  </figcaption>
+</figure>
+```
+And css
+```
+figure {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+```
