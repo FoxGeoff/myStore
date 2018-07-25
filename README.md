@@ -43,6 +43,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   "node_modules/popper.js/dist/umd/popper.js",
   "node_modules/bootstrap/dist/js/bootstrap.js"
 ]```
+
 ## Check: Add components, service and routes
 1. Run ```ng g c home --spec false```
 1. Run ```ng g c footer --spec false```
@@ -51,8 +52,31 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. Run ```ng g c product-detail --spec false```
 1. Run ```ng g c search --spec false```
 1. Run ```ng g s shared/product --spec false```
+
 ##Tip: 
 If you see an error like ```You seem to not be depenging on '@angular/core' and/or 'rxjs' ```, delete node_modules and run ```npm install`` to rebuild this folder.
+
+## Check: Add app.component.html
+1. Add to app component.html
+1. Tip: to see the bootstrap style applied close the server and run ```sever -o```
+```
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <app-search></app-search>
+    </div>
+
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+```
+
 ## Check: Add Navbar component html
 1. Add to navbar.component.ts
 ```
