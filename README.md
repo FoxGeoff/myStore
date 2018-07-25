@@ -53,7 +53,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. Run ```ng g c search --spec false```
 1. Run ```ng g s shared/product --spec false```
 
-##Tip: 
+## Tip: ##
 If you see an error like ```You seem to not be depenging on '@angular/core' and/or 'rxjs' ```, delete node_modules and run ```npm install`` to rebuild this folder.
 
 ## Check: Add app.component.html
@@ -171,4 +171,16 @@ import {FormsModule} from "@angular/forms";
     </div>
   </footer>
 </div>
+```
+## Check: Add shared/prodct.ts
+```
+export interface Product {
+    id: number;
+    title: string;
+    price: number;
+    rating: number;
+    shortDescription: string;
+    description: string;
+    categories: string[];
+}
 ```
