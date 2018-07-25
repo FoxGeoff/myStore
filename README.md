@@ -116,3 +116,59 @@ If you see an error like ```You seem to not be depenging on '@angular/core' and/
   </div>
 </nav>
 ```
+## Check: Add Search component html
+```
+<h4>Advanced Search</h4>
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="title">Product title:</label>
+    <input id="title"
+           placeholder="Title" type="text"
+           name="title" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="price">Product price:</label>
+    <input id="price"
+           placeholder="Price" type="number"
+           name="price" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="category">Category:</label><br/>
+    <select id="category"
+            placeholder="Category"
+            name="category" ngModel>
+      <option>books</option>
+      <option>electronics</option>
+      <option>hardware</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button type="submit"
+            class="btn btn-primary btn-block">Search</button>
+  </div>
+</form>
+```
+## Tip: blank screen fix
+The browser stopped rendering the app. Its console shows an error "There is no directive with "exportAs" set to "ngForm" - it doesn’t know about ngForm, which is a part of Angular Forms API. Add the FormsModule to the imports section of app.module.ts:
+```
+import {FormsModule} from "@angular/forms";
+
+@NgModule({
+  ...
+  imports: [
+    FormsModule,
+```
+
+## Check: Add Footer component html
+```
+<div class="container">
+  <hr>
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; My Store 2018</p>
+      </div>
+    </div>
+  </footer>
+</div>
+```
