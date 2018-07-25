@@ -344,5 +344,64 @@ figure {
   }
   ```
   ## Test screen shot
-  
+
   ![Screen Shot](/resources/GUI.png)
+
+  ## Check: Add Product detail component, html, code and css
+  *Code*
+  ```
+  import {Component, OnInit} from '@angular/core';
+import {ProductService} from '..//shared/product.service';
+import {Product} from '..//shared/product';
+import {ActivatedRoute} from '@angular/router';
+
+@Component({
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.css']
+})
+export class ProductDetailComponent implements OnInit {
+
+  product: Product;
+
+  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+
+  ngOnInit() {
+    const prodId: number = parseInt(this.route.snapshot.params['productId'], 10);
+    this.product = this.productService.getProductById(prodId);
+  }
+}
+```
+*html*
+```
+<figure class="figure">
+  <img src="http://placehold.it/820x320" class="figure-img img-fluid rounded">
+  <figcaption class="figure-caption">
+    <h4>Title: {{product.title}}</h4>
+    <h5>Price: {{product.price | currency}}</h5>
+    <h5> Description: {{product.description}}</h5>
+    <h5> Rating: {{product.rating}}</h5>
+    <h5>Categories:
+    <ul>
+    <li *ngFor="let category of product.categories">
+      {{category}}
+    </li>
+    </ul></h5>
+  </figcaption>
+</figure>
+```
+*css*
+```
+figure {
+    margin-top: 1em;
+  }
+  
+  h4 {
+    color: blue;
+  }
+  
+  h5 {
+    color: brown;
+  }
+  ```
+
